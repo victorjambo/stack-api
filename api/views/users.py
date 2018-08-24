@@ -18,21 +18,6 @@ class UserResource(Resource):
             "message": SUCCESS_MESSAGES["fetched"].format("Users")
         })
 
-    def post(self):
-        """Register user"""
-        request_data = request.get_json()
-
-        user_schema = UserSchema(only=["id", "username", "email", "password", "created_at", "updated_at"])
-        user_data = user_schema.load_object_into_schema(request_data)
-        user = User(**user_data)
-        user.save()
-
-        return jsonify({
-            "data": user_schema.dump(user).data,
-            "status": "success",
-            "message": SUCCESS_MESSAGES["created"].format("User")
-        })
-
 
 @api.route('/users/<string:user_id>')
 class SingleUserResource(Resource):
@@ -45,24 +30,6 @@ class SingleUserResource(Resource):
             "data": users_schema.dump_object_into_schema(user),
             "status": "success",
             "message": SUCCESS_MESSAGES["fetched"].format("User")
-        })
-
-    def put(self, user_id):
-        """Update username or password"""
-        request_data = request.get_json()
-
-        user = User.get_or_404(user_id)
-
-        user_schema = UserSchema(only=["username", "password"])
-        user_data = user_schema.load_object_into_schema(request_data)
-
-        user = user.update(user_data)
-        user.save()
-
-        return jsonify({
-            "data": user_schema.dump(user).data,
-            "status": "success",
-            "message": SUCCESS_MESSAGES["updated"].format("User")
         })
 
     def delete(self, user_id):

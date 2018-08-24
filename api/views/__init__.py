@@ -1,6 +1,4 @@
-from .questions import QuestionResource
-from .questions import SingleQuestionResource
-from .answers import AnswerResource
-from .answers import SingleAnswerResource
-from .users import UserResource
-from .users import SingleUserResource
+from .questions import QuestionResource, SingleQuestionResource
+from .answers import AnswerResource, SingleAnswerResource
+from .users import UserResource, SingleUserResource
+from .auth import AuthRegisterResource, AuthLoginResource, AuthUpdateResource

@@ -1,5 +1,6 @@
 import re
 from .database import db
+from api.middlewares.base_validator import ValidationError
 
 
 class ModelOperations(object):
@@ -22,6 +23,10 @@ class ModelOperations(object):
         return self
 
     @classmethod
+    def query_(cls, data):
+        return cls.query.filter_by(username=data['username']).first()
+
+    @classmethod
     def get_or_404(cls, id):
         """
         return entries by id
@@ -30,7 +35,7 @@ class ModelOperations(object):
         record = cls.query.get(id)
 
         if not record:
-            raise Exception(
+            raise ValidationError(
                 {
                     'message':
                     f'{re.sub(r"(?<=[a-z])[A-Z]+",lambda x: f" {x.group(0).lower()}" , cls.__name__)} not found'  # noqa

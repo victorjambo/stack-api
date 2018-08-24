@@ -13,6 +13,8 @@ flask-migrate = "*"
 "psycopg2" = "*"
 marshmallow = "*"
 "psycopg2-binary" = "*"
+pyjwt = "*"
+passlib = "*"
 
 [dev-packages]
 
