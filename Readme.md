@@ -96,7 +96,9 @@ A question and answer api tool like stackoverflow
 
 ## Running the API
 
-Manually Test the endpoints with: [![Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/apps)
+Manually Test the endpoints with postmane
+
+[![Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/apps)
 
 **EndPoint** | **Functionality**
 --- | ---
@@ -121,5 +123,5 @@ $ nosetests
 ```
 
 ## ToDo
-- [] Authentication
-- [] Integrate CircleCI
+- [x] Authentication
+- [x] Integrate CircleCI
