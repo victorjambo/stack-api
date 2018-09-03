@@ -8,6 +8,11 @@ from .messages import ERROR_MESSAGES
 
 
 def generate_token(user, user_data):
+    """
+    This method generates a jwt token on login
+    it authenticates/validate the user
+    returns token
+    """
     password = user.password
     candidate_password = user_data['password']
 
