@@ -3,6 +3,7 @@ from .config.auditable_model import AuditableBaseModel
 
 
 class Answer(AuditableBaseModel):
+    """Class Answer model"""
     __tablename__ = 'answers'
 
     title = db.Column(db.String(), unique=True, nullable=False)
