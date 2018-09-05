@@ -2,3 +2,4 @@
 
 CHARSET = 'utf-8'
 MIMETYPE = 'application/json'
+EXCLUDED_FIELDS = []
