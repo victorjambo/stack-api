@@ -9,6 +9,7 @@ class Question(AuditableBaseModel):
     title = db.Column(db.String(), unique=True, nullable=False)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    history = db.relationship('History', backref='logs')
     answers = db.relationship(
         'Answer',
         backref='answer',

@@ -4,8 +4,6 @@ from main import api
 from api.utilities.messages import SUCCESS_MESSAGES
 from api.models import Question, User
 from api.model_serializers import QuestionSchema
-from api.middlewares.token_required import token_required
-
 
 
 @api.route('/questions')
@@ -19,11 +17,10 @@ class QuestionResource(Resource):
             "message": SUCCESS_MESSAGES["fetched"].format("Questions")
         })
 
-    @token_required
-    def post(self, args):
+    def post(self):
         request_data = request.get_json()
 
-        user = User.query.get(self)
+        user = User.query.first()
 
         question_schema = QuestionSchema(only=["id", "title", "created_at", "updated_at"])
         question_data = question_schema.load_object_into_schema(request_data)

@@ -15,6 +15,11 @@ marshmallow = "*"
 "psycopg2-binary" = "*"
 pyjwt = "*"
 passlib = "*"
+redis = "*"
+blinker = "*"
+flask-celeryext = "*"
+sse = "*"
+gevent = "*"
 
 [dev-packages]
 

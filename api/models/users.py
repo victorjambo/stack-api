@@ -8,6 +8,7 @@ class User(AuditableBaseModel):
     username = db.Column(db.String(), unique=True, nullable=False)
     email = db.Column(db.String(), unique=True, nullable=False)
     password = db.Column(db.String(), nullable=False)
+    history = db.relationship('History', backref='history')
 
     questions = db.relationship(
         'Question',
