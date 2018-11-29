@@ -20,7 +20,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = getenv('TEST_DATABASE_URI',
-                                     default='postgresql://localhost/activo_test')
+                                     default='postgresql://localhost/stack_test')
 
 
 config = {

@@ -22,6 +22,7 @@ sse = "*"
 gevent = "*"
 
 [dev-packages]
+yapf = "*"
 
 [requires]
 python_version = "3.6"
